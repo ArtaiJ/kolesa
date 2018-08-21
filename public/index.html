@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="gorilla">
+<head>
+	<title>Gorilla</title>
+	<base href="/">
+	<link rel="stylesheet" type="text/css" href="./style/all.css">
+</head>
+<body>
+	<section class="header">
+		<div class="logo">
+			<img class="logo-img" src="./images/gorilla-white.svg" alt="">
+			<span class="logo-title">GORILLA</span>
+		</div>
+		<div class="menu">
+			<ul class="menu-list" id="menu_body">
+				<li><a href="#" class="menu-item menu-item__about">About</a></li>
+				<li><a href="#" class="menu-item menu-item__work">Work</a></li>
+				<li><a href="#" class="menu-item menu-item__services">Services</a></li>
+				<li><a href="#" class="menu-item menu-item__contact">Contact</a></li>
+			</ul>
+			<div class="open-menu" id="open_menu" onclick="openMenu()"></div>
+			<div class="close-menu" id="close_menu" onclick="openMenu()"></div>
+		</div>
+		
+	</section>
+
+	
+
+	<ui-view>
+		
+	</ui-view>
+
+<script src="/js/controllers/menu.js"></script>
+
+</body>
+<script src="/js/vendor/ng.min.js"></script>
+<script src="/js/vendor/ng-route.min.js"></script>
+<script src="/js/vendor/ng-cookies.min.js"></script>
+<script src="/app.js"></script>
+<script src="/js/controllers/home.js"></script>
+</html>
