@@ -5,9 +5,5 @@
 
 
 /*moleculas*/
-@import url('./pages/header.css');
 @import url('./pages/home.css');
-
-/*fonts*/
-@import url('https://fonts.googleapis.com/css?family=Hanalei+Fill');
-@import url('https://fonts.googleapis.com/css?family=Oswald:400,500&subset=cyrillic');
+@import url('./pages/header.css');

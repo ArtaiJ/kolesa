@@ -1,4 +1,4 @@
-var app = angular.module('gorilla', [
+var app = angular.module('kolesa', [
 	'ui.router',
 	'ngCookies'
 ]);
@@ -17,6 +17,5 @@ function routeConfig($stateProvider, $urlRouterProvider, $locationProvider) {
 			templateUrl: '/views/home.html',
 			controller: 'MainCtrl',
 			controllerAs: 'vm'
-		})
-
+		});
 }
