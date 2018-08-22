@@ -7,7 +7,7 @@ const path = require('path')
 const session = require('express-session')
 const MongoStore = require('connect-mongo') (session)
 
-mongoose.connect('mongodb://localhost/kolesa')
+mongoose.connect('mongodb://localhost:27017/kolesa', { useNewUrlParser: true })
 
 const app = express()
 
