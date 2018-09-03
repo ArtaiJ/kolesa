@@ -1,0 +1,17 @@
+.admin {
+	width: 100%;
+	padding: 50px;
+	display: flex;
+	flex-flow: column;
+}
+
+.input-form {
+	width: 100%;
+	padding: 30px 0;
+	display: flex;
+	flex-flow: row;
+}
+
+.field-block {
+	padding: 20px;
+}

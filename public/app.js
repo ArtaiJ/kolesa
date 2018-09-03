@@ -17,5 +17,11 @@ function routeConfig($stateProvider, $urlRouterProvider, $locationProvider) {
 			templateUrl: '/views/home.html',
 			controller: 'MainCtrl',
 			controllerAs: 'vm'
+		})
+		.state('admin', {
+			url: '/admin',
+			templateUrl: '/views/admin.html',
+			controller: 'AdminCtrl',
+			controllerAs: 'vm'
 		});
 }

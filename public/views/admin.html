@@ -1,0 +1,72 @@
+<section class="admin">
+<!-- Homeland add -->
+	<form ng-submit="vm.saveCountry()" class="input-form">
+		<div class="field-block">
+			<input type="text" class="input" name="" placeholder="Add country" ng-model="vm.homeland" required="">
+		</div>
+		<div class="field-block">
+			<button type="submit" class="btn btn_save">Save</button>
+		</div>
+	</form>
+<!-- Brand add -->
+	<form ng-submit="vm.saveCar()" class="input-form">
+		<div class="field-block">
+			<select class="select" ng-model="landSelected" ng-change="vm.selectLand(landSelected)" ng-options="land as land.land for land in vm.homelands" required="">
+				<option value="">Select Country</option>
+			</select>
+		</div>
+		<div class="field-block">
+			<input type="text" class="input" name="" placeholder="Add brand" ng-model="vm.brand_name" required="">
+		</div>
+	
+		<div class="field-block">
+			<button type="submit" class="btn btn_save">Save</button>
+		</div>
+	</form>
+<!-- Model add -->
+	<form ng-submit="vm.addModel()" class="input-form">
+		<div class="field-block">
+			<select class="select" ng-model="carSelected" ng-change="vm.selectBrand(carSelected)" ng-options="car as car.title for car in vm.cars">
+				<option value="">Select Brand</option>
+			</select>
+		</div>
+		<div class="field-block">
+			<input type="text" class="input" name="" placeholder="Add model" ng-model="vm.name" required="">
+		</div>
+	
+		<div class="field-block">
+			<button type="submit" class="btn btn_save">Save</button>
+		</div>
+	</form>
+
+<!-- <table class="table table_home">
+	<thead>
+		<tr>
+			<td>Title</td>
+			<td>Country</td>
+			<td>Action</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="car in vm.cars">
+			<td ng-bind="car.title"></td>
+			<td ng-bind="car.country"></td>
+			<td>
+				<button ng-click="vm.makeEditable(post)" class="btn btn_edit">Edit</button>
+				<button ng-click="vm.deletePost(post)" class="btn btn_delete">Delete</button>
+				<button ui-sref="post({id: post._id})" class="btn btn_more">More</button>
+			</td>
+			
+		</tr>
+	</tbody>
+</table> -->
+
+</section>
+
+
+<!-- <div class="pagination">
+	<div ng-click="vm.prevPage()"> <<< </div>
+	<button ng-repeat="page in vm.pages track by $index" ng-bind="page + 1" class="btn" ng-class="{'active': vm.current_page == page + 1}" ng-click="vm.setPage(page + 1)"></button>
+	<div ng-click="vm.nextPage()"> >>> </div>
+</div> -->
+

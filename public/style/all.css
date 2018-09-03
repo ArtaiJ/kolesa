@@ -2,8 +2,11 @@
 @import url('./vendor/reset.css');
 
 /*atoms*/
+@import url('./components/input.css');
+@import url('./components/select.css');
 
 
 /*moleculas*/
 @import url('./pages/home.css');
 @import url('./pages/header.css');
+@import url('./pages/admin.css');
