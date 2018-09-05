@@ -1,0 +1,33 @@
+.btn {
+	border-radius: 3px;
+	font-size: 14px;
+	padding: 0 10px;
+	height: 36px;
+	transition: all 150ms ease-in-out;
+	outline: 0;
+	position: relative;
+	display: flex;
+	align-items: center;
+	color: #fff;
+	background: #2a81dd;
+	border: 1px solid rgba(28,24,25,.1);
+	box-shadow: 0 5px #999;
+	cursor: pointer;
+}
+
+.btn:hover {
+	color: #fff;
+	border-color: rgba(28,24,25,.2);
+	background: #1E88E5;
+}
+
+.btn:active {
+	box-shadow: 0 2px #666;
+	transform: translateY(4px);
+}
+
+
+	.btn_img {
+		width: 20px;
+		margin-right: 10px;
+	}

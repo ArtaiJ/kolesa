@@ -5,16 +5,58 @@
 	<base href="/">
 	<link rel="stylesheet" type="text/css" href="./style/all.css">
 </head>
-<body>
-	<section class="header">
-
-		<div class="logo-block">
-			<img class="logo" src="./images/kolesa.png" alt="">
+<body class="body">
+	<section class="header" ng-controller="HeaderCtrl as vm">
+		<div class="header-top">
+			<div class="header-top__logos">
+				<a href="">
+					<img class="logo__top" src="./images/kolesa-mini.png" alt="">
+				</a>
+				<a href="https://krisha.kz/">
+					<img class="logo__top" src="./images/krisha-mini.png" alt="">
+				</a>
+				<a href="https://market.kz/?utm_source=kolesa.kz&utm_medium=link&utm_campaign=top_menu">
+					<img class="logo__top" src="./images/market-mini.png" alt="">
+				</a>
+			</div>
+			<div class="header-top__right">
+				<div class="auth-block" ui-sref="signup" ng-if="!session">Регистрация</div>
+				<div>
+					<img class="key-image" src="./images/car-key.svg" alt="">
+				</div>
+				<div class="auth-block" ui-sref="login" ng-if="!session">Личный кабинет</div>
+				<div class="auth-block" ng-if="session" ng-click="vm.logout()">Выйти</div>
+			</div>
 		</div>
 
-		
+		<div class="header-main">
+			<div class="header-main_block">
+				<div class="logo-block">
+					<img class="logo" src="./images/kolesa-mini.png" alt="">
+					<div class="region-select">
+						<select class="select_region" ng-model="regionSelected" ng-change="vm.selectRegion(regionSelected)" ng-options="region as region.place for region in vm.regions">
+							<option value="">Все регионы</option>
+						</select>
+					</div>
+				</div>
+				<div class="header-menu">
+					<div class="menu-items" ui-sref="vehicles">Машины</div>
+					<div class="menu-items">Запчасти</div>
+					<div class="menu-items">Ремонт и услуги</div>
+					<div class="menu-items">Коммерческие</div>
+					<div class="menu-items">Прочее</div>
+				</div>
+			</div>
 
-		
+			<div class="post-ads">
+				<button class="btn">
+					<img class="btn_img" src="./images/plus-button.svg" alt="">
+					<span>Подать объявление</span>
+				</button>
+			</div>
+			
+		</div>
+
 
 		
 
@@ -33,8 +75,11 @@
 <script src="/js/vendor/ng-cookies.min.js"></script>
 <script src="/app.js"></script>
 <script src="/js/vendor/file.js"></script>
-
+<!-- controllers -->
+<script src="js/controllers/header.js"></script>
 <script src="js/controllers/home.js"></script>
 <script src="js/controllers/admin.js"></script>
-
+<script src="js/controllers/vehicles.js"></script>
+<script src="js/controllers/signup.js"></script>
+<script src="js/controllers/login.js"></script>
 </html>

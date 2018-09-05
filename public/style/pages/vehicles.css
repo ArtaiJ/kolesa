@@ -1,0 +1,42 @@
+.vehicles {
+	width: 100%;
+	display: flex;
+	flex-flow: column;
+	margin-top: 20px;
+}
+
+	.submenu {
+		width: 100%;
+		display: flex;
+		flex-flow: row;
+		align-items: center;
+		background-color: #fae8bb;
+		padding: 15px 5px;
+	}
+
+		.mileage-car {
+			display: flex;
+			flex-flow: column;
+		}
+
+			.search-block {
+				display: flex;
+				flex-flow: row;
+				flex-wrap: nowrap;
+				background-color: #fbf1d7;
+			}
+
+				.search-block_left {
+					display: flex;
+					flex-flow: column;
+				}
+
+					.cliparts {
+						padding: 15px 0 15px 50px;
+					}
+
+						.clipart_items {
+							margin-right: 50px;
+							width: 10%;
+							cursor: pointer;
+						}

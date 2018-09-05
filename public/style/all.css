@@ -4,9 +4,12 @@
 /*atoms*/
 @import url('./components/input.css');
 @import url('./components/select.css');
+@import url('./components/btn.css');
 
 
 /*moleculas*/
 @import url('./pages/home.css');
 @import url('./pages/header.css');
 @import url('./pages/admin.css');
+@import url('./pages/vehicles.css');
+@import url('./pages/body.css');

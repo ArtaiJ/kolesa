@@ -1,14 +1,93 @@
 .header {
 	width: 100%;
-	padding: 20px;
 	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.header-top {
+	width: 100%;
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+}
+
+	.header-top__logos {
+		display: flex;
+		flex-flow: row;
+	}
+
+		.logo__top {
+			width: 100px;
+			height: 30px;
+		}
+
+	.header-top__right {
+		display: flex;
+	}
+
+		.auth-block {
+			text-decoration: underline;
+			text-underline-position: under;
+			color: #06c;
+			cursor: pointer;
+		}
+
+		.key-image {
+			width: 20px;
+			margin: 0 10px 0 60px;
+		}
+
+.header-main {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
 	flex-flow: row;
 }
 
-.logo-block {
-	padding: 10px;
-}
+	.header-main_block {
+		display: flex;
+		flex-flow: row;
+		flex-wrap: nowrap;
+	}
 
-.logo {
-	width: 50%;
-}
+	.logo-block {
+		width: 200px;
+		padding: 10px 10px 0 0;
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+		.logo {
+			width: 100%;
+		}
+
+		.region-select {
+		}
+
+	.header-menu {
+		display: flex;
+		flex-flow: row;
+		align-items: center;
+		justify-content: center;
+		margin-left: 20px;
+	}
+
+		.menu-items {
+			padding: 10px;
+			text-decoration: underline;
+			text-underline-position: under;
+			color: #06c;
+			cursor: pointer;
+		}
+
+	.post-ads {
+		display: flex;
+		top: 0;
+		right: 0;
+		align-items: center;
+		
+	}

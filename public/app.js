@@ -18,10 +18,32 @@ function routeConfig($stateProvider, $urlRouterProvider, $locationProvider) {
 			controller: 'MainCtrl',
 			controllerAs: 'vm'
 		})
+		.state('signup', {
+			url: '/signup',
+			templateUrl: '/views/signup.html',
+			controller: 'SignupCtrl',
+			controllerAs: 'vm'
+		})
+		.state('login', {
+			url: '/login',
+			templateUrl: '/views/login.html',
+			controller: 'LoginCtrl',
+			controllerAs: 'vm'
+		})
 		.state('admin', {
 			url: '/admin',
 			templateUrl: '/views/admin.html',
 			controller: 'AdminCtrl',
 			controllerAs: 'vm'
+		})
+		.state('vehicles', {
+			url: '/vehicles',
+			templateUrl: '/views/vehicles.html',
+			controller: 'VehiclesCtrl',
+			controllerAs: 'vm'
+		})
+		.state('vehicles.default', {
+			url: '/default',
+			templateUrl: '/views/vehicles-default.html'
 		});
 }

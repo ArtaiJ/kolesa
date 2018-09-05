@@ -8,25 +8,26 @@ const router = express.Router()
 const Brand = require('../models/Brand')
 const Model = require('../models/Model')
 const Homeland = require('../models/Homeland')
+const Region = require('../models/Region')
 
 // подключаем все роуты
-router.get('/admin', (req, res, next) => {
-	Homeland.find().exec((err, homelands) => {
+router.get('/', (req, res, next) => {
+	Region.find().exec((err, regions) => {
 		if(err) return res.send(err)
-		res.send(homelands)
+		res.send(regions)
 	})
 })
 
 
 
 router.post('/', (req, res, next) => {
-	var homeland = new Homeland({
-		land: req.body.land
+	var region = new Region({
+		place: req.body.place
 	})
 
-		homeland.save((err, homeland) => {
+		region.save((err, region) => {
 		if (err) return res.send(err)
-		res.send(homeland)
+		res.send(region)
 	})
 })
 

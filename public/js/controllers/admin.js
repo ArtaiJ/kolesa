@@ -8,7 +8,6 @@ function AdminCtrl($http, $scope) {
 	vm.homelands = [];
 	vm.cars = [];
 
-	
 
 	$http.get('/api/car/admin')
 		.success(function(response) {
@@ -27,13 +26,7 @@ function AdminCtrl($http, $scope) {
 		})
 
 
-
-
-
-
 	vm.saveCountry = function() {
-		
-
 		var data = {
 			land: vm.homeland
 		}
@@ -47,7 +40,7 @@ function AdminCtrl($http, $scope) {
 			.error(function(err) {
 				console.log(err);
 			})
-
+		console.log('success');
 	}
 
 	vm.selectLand = function (land) {
@@ -57,8 +50,6 @@ function AdminCtrl($http, $scope) {
 	}
 
 	vm.saveCar = function() {
-		
-
 		var data = {
 			title: vm.brand_name,
 			country: vm.land_id
@@ -72,7 +63,7 @@ function AdminCtrl($http, $scope) {
 			.error(function(err) {
 				console.log(err);
 			})
-
+		console.log('success');
 	}
 
 
@@ -84,17 +75,10 @@ function AdminCtrl($http, $scope) {
 
 
 	vm.addModel = function() {
-
-
-		console.log(vm.brand);
-		
-
 		var data = {
 			name: vm.name,
 			brand: vm.brand_id
 		}
-
-		console.log(vm.brand_id);
 
 		$http.post('/api/model/' + vm.brand_id, data)
 			.success(function(response) {
@@ -104,10 +88,25 @@ function AdminCtrl($http, $scope) {
 			.error(function(err) {
 				console.log(err)
 			});
-
 		console.log('success');
 	}
 
-	
+
+	vm.addRegion = function() {
+		var data = {
+			place: vm.region
+		}
+
+		$http.post('/api/region', data)
+			.success(function(response) {
+				vm.homelands.push(response);
+				console.log(response);
+			})
+
+			.error(function(err) {
+				console.log(err);
+			})
+		console.log('success');
+	}
 
 }

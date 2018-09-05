@@ -2,3 +2,10 @@
 	border: 1px solid rgb(0, 0, 0);
 	border-radius: 5px;
 }
+
+.select_region {
+	border: none;
+	text-decoration: underline;
+	text-decoration-style: dotted;
+	color: #06c;
+}
