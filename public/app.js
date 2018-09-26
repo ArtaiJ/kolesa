@@ -30,6 +30,18 @@ function routeConfig($stateProvider, $urlRouterProvider, $locationProvider) {
 			controller: 'LoginCtrl',
 			controllerAs: 'vm'
 		})
+		.state('postadd', {
+			url: '/postadd',
+			templateUrl: '/views/postadd.html',
+			controller: 'PostaddCtrl',
+			controllerAs: 'vm'
+		})
+		.state('postadd.mileage', {
+			url: '/mileage',
+			templateUrl: '/views/postadd-mileage.html',
+			controller: 'MileageCtrl',
+			controllerAs: 'vm'
+		})
 		.state('admin', {
 			url: '/admin',
 			templateUrl: '/views/admin.html',

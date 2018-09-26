@@ -5,7 +5,13 @@ const bcrypt = require('bcryptjs')
 
 const UserSchema = mongoose.Schema({
 	email: {type: String, unique: true},
-	name: String,
+	phone: String,
+	ads: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Mileage_cars'
+		}
+	],
 	password: String,
 	accept: {type: Boolean, default: false}
 })

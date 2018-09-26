@@ -84,7 +84,7 @@ router.post('/logout', (req, res, next) => {
 
 router.post('/signup', (req, res, next) => {
 	var user = new User({
-		name: req.body.name,
+		phone: req.body.phone,
 		email: req.body.email,
 		password: req.body.password,
 		accept: req.body.accept
@@ -98,7 +98,7 @@ router.post('/signup', (req, res, next) => {
 			to: user.email, // list of receivers
 			subject: 'Hello ✔', // Subject line
 			text: 'Hello world?', // plain text body
-			html: `<a href="http://localhost:3001/api/accept/${user._id}">Добро пожаловать в Kolesa, ${user.name}!</a>` // html body
+			html: `<a href="http://localhost:3001/api/accept/${user._id}">Добро пожаловать в Kolesa!</a>` // html body
 		}
 
 		transporter.sendMail(mailOptions, (err, info) => {
@@ -128,6 +128,7 @@ router.use('/car', require('./car'))
 router.use('/model', require('./model'))
 router.use('/homeland', require('./homeland'))
 router.use('/region', require('./region'))
+router.use('/post_car', require('./post_car'))
 
 
 module.exports = router

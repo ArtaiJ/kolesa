@@ -1,6 +1,6 @@
 <form ng-submit="vm.signUp()">
-	<input class="input" type="email" ng-model="vm.email" placeholder="email">
-	<input class="input" type="name" ng-model="vm.name" placeholder="name">
-	<input class="input" type="password" ng-model="vm.password" placeholder="password">
+	<input class="input" type="email" ng-model="vm.email" placeholder="email" required="">
+	<input class="input" type="tel" ng-model="vm.phone" placeholder="phone">
+	<input class="input" type="password" ng-model="vm.password" placeholder="password" required="">
 	<button type="submit">Login</button>
 </form>

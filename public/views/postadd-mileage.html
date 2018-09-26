@@ -1,0 +1,229 @@
+<div class="field_block">
+	<span class="field_title">Марка и модель *</span>
+	<div class="car_select">
+		<input type="text" class="input_search" ng-model="search_car" placeholder="Поиск">
+		<div data-ng-class="{'cars_list': car._id == vm.activeCar}" ng-repeat="car in vm.cars | filter:search_car track by car.title">
+			<div class="list_item" ng-click="vm.selectedBrand(car)">{{car.title}}</div>
+		</div>
+	</div>
+
+	<div class="car_select" ng-if="vm.car != null">
+		<input type="text" class="input_search" ng-model="search_model" placeholder="Поиск">
+		<div data-ng-class="{'models_list': model._id == vm.activeModel}" ng-repeat="model in vm.models | filter:search_model track by model.name">
+			<div class="list_item" ng-click="vm.selectedModel(model)">{{model.name}}</div>
+		</div>
+	</div>
+</div>
+
+<div class="field_block">
+	<span class="field_title">Кузов *</span>
+	<div class="types_block">
+		<div data-ng-class="{'type_list': type == vm.activeType}" ng-repeat="type in vm.types">
+			<div class="type_item" ng-click="vm.selectType(type)">{{type}}</div>
+		</div>
+	</div>
+</div>
+
+<div class="field_block">
+	<span class="field_title">Год выпуска *</span>
+	<div class="year_block">
+		<input class="input_price" type="number" min="1900" max="2018" name="" ng-model="vm.year">
+		<div class="tip">Например, 1998 или 2007</div>
+	</div>
+</div>
+
+<div class="field_block">
+	<span class="field_title">Цена *</span>
+	<div class="price_block">
+		<input class="input_price" type="number" name="" ng-model="vm.price">
+		<div class="price_tip">тенге</div>
+	</div>
+</div>
+
+<div class="field_block">
+	<span class="field_title">Двигатель *</span>
+	<div class="price_block">
+		<div>
+			<input class="input_price" type="number" name="" ng-model="vm.engine">
+			<div class="tip">Например, 2.8 или 3</div>
+		</div>
+		<div class="price_tip">л.</div>
+		<div data-ng-class="{'type_list': engine_type == vm.activeEngineType}" ng-repeat="engine_type in vm.engine_types">
+			<div class="type_item" ng-click="vm.selectEngineType(engine_type)">{{engine_type}}</div>
+		</div>
+	</div>
+</div>
+
+<div class="field_block">
+	<span class="field_title">VIN</span>
+	<div class="year_block">
+		<input class="input_vin" type="" maxlength="17" name="" ng-model="vm.vin">
+		<div class="tip">Максимальная длина текста 17 знаков. Осталось 17 знаков.</div>
+	</div>
+</div>
+
+<div class="field_block">
+	<span class="field_title">КПП *</span>
+	<div class="types_block">
+		<div data-ng-class="{'type_list': transmission == vm.activeTransmission}" ng-repeat="transmission in vm.transmissions">
+			<div class="type_item" ng-click="vm.selectTransmission(transmission)">{{transmission}}</div>
+		</div>
+	</div>
+</div>
+
+<div class="field_block">
+	<span class="field_title">Пробег</span>
+	<div class="price_block">
+			<input class="input_price" type="number" name="" ng-model="vm.mileage">
+		<div data-ng-class="{'type_list': mileage_unit == vm.activeMileage_unit}" ng-repeat="mileage_unit in vm.mileage_units">
+			<div class="type_item" ng-click="vm.selectMileage_unit(mileage_unit)">{{mileage_unit}}</div>
+		</div>
+	</div>
+</div>
+
+<div class="field_block">
+	<span class="field_title">Руль *</span>
+	<div class="price_block">
+		<div data-ng-class="{'wheel_active': wheel == vm.activeWheel}" ng-repeat="wheel in vm.wheels">
+			<div class="wheel" ng-click="vm.selectWheel(wheel)">{{wheel}}</div>
+		</div>
+	</div>
+</div>
+
+<div class="field_block">
+	<span class="field_title">Цвет</span>
+	<div class="price_block">
+		<select class="select_color" ng-model="colorSelected" ng-change="vm.selectColor(colorSelected)" ng-options="color as color for color in vm.colors">
+			<option value="">Выбрать</option>
+		</select>
+		<input class="check" type="checkbox" id="col" ng-model="vm.checkboxModel"/>
+		<label class="check_text" for="col">металлик</label>
+	</div>
+</div>
+
+<div class="field_block">
+	<span class="field_title">Наличие *</span>
+	<div class="price_block">
+		<div data-ng-class="{'wheel_active': presence == vm.activePresence}" ng-repeat="presence in vm.presences">
+			<div class="wheel" ng-click="vm.selectPresence(presence)">{{presence}}</div>
+		</div>
+	</div>
+</div>
+
+<div class="field_block">
+	<span class="field_title">Растаможен? *</span>
+	<div class="price_block">
+		<div data-ng-class="{'wheel_active': cleared == vm.activeCleared}" ng-repeat="cleared in vm.cleareds">
+			<div class="wheel" ng-click="vm.selectCleared(cleared)">{{cleared}}</div>
+		</div>
+	</div>
+</div>
+
+<div class="field_block">
+	<span class="field_title">Состояние? *</span>
+	<div class="types_block">
+		<div data-ng-class="{'type_list': state == vm.activeState}" ng-repeat="state in vm.states">
+			<div class="type_item" ng-click="vm.selectState(state)">{{state}}</div>
+		</div>
+	</div>
+</div>
+
+<div class="field_block">
+	<span class="field_title">Привод</span>
+	<div class="types_block">
+		<div data-ng-class="{'type_list': drive == vm.activeDrive}" ng-repeat="drive in vm.drives">
+			<div class="type_item" ng-click="vm.selectDrive(drive)">{{drive}}</div>
+		</div>
+	</div>
+</div>
+
+<div class="field_block">
+	<span class="field_title">Текст объявления</span>
+	<div class="types_block">
+		<textarea class="input_text" ng-model="vm.text"></textarea>
+
+	</div>
+</div>
+
+<div class="field_block">
+	<span class="field_title">Фотографии</span>
+	<div class="types_block">
+		<div class="image_add_block">
+			<span>Фотографии</span>
+			<div class="image_add">
+				<input class="input_image" type="file" name="" ng-file-model="vm.file" accept="image/*">
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="contact_add">Контактная информация</div>
+
+<div class="field_block">
+	<span class="field_title">Город *</span>
+	<div class="year_block">
+		<select class="select_color" ng-model="regionSelected" ng-change="vm.selectRegion(regionSelected)" ng-options="region as region.place for region in vm.regions">
+			<option value="">Выбрать</option>
+		</select>
+	</div>
+</div>
+
+<!-- If !session -->
+<form ng-if="!session">
+<div class="field_block">
+	<span class="field_title">Телефон *</span>
+	<div class="year_block">
+		<input type="tel" class="select_color" ng-model="vm.phone">
+		<div class="tip">Например: +7 701 1000000</div>
+	</div>
+</div>
+
+<div class="field_block">
+	<span class="field_title">Эл. почта *</span>
+	<div class="year_block">
+		<input type="email" class="select_color" ng-model="vm.email">
+		<div class="tip">Следует указать вашу настоящую почту, она позволит вам управлять вашим объявлением и ни в коем случае не будет опубликована на сайте.</div>
+	</div>
+</div>
+
+<div class="field_block">
+	<span class="field_title">Пароль *</span>
+	<div class="confirm_block">
+		<input type="password" class="select_color" ng-model="vm.password">
+	</div>
+	<button class="btn" ng-if="vm.auth != true" ng-click="vm.signUp()">Подтвердить</button>
+	<img src="../images/checked.svg" alt="" ng-if="vm.auth == true">
+</div>
+</form>
+
+<!-- If session -->
+<div ng-if="session">
+<div class="field_block">
+	<span class="field_title">Телефон *</span>
+	<div class="year_block">
+		<input type="tel" class="select_color" ng-model="vm.phone">
+		<div class="tip">Например: +7 701 1000000</div>
+	</div>
+</div>
+
+<div class="field_block">
+	<span class="field_title">Эл. почта *</span>
+	<div class="year_block">
+		<input type="email" class="select_color" ng-model="vm.email">
+		<div class="tip">Следует указать вашу настоящую почту, она позволит вам управлять вашим объявлением и ни в коем случае не будет опубликована на сайте.</div>
+	</div>
+</div>
+</div>
+
+
+
+<div class="consent">
+	<input class="check" type="checkbox" id="col" ng-model="vm.checkboxConsent" required="" />
+	<label class="check_text" for="col">Cогласен с правилами размещения объявлений</label>
+</div>
+
+<div class="submit_block">
+	<button class="btn" ng-click="vm.saveAd()">
+		<span>Подать объявление</span>
+	</button>
+</div>

@@ -5,6 +5,9 @@ const path = require('path')
 
 const router = express.Router()
 
+const asyncMiddleware = require('../async')
+
+
 const Brand = require('../models/Brand')
 const Model = require('../models/Model')
 const Homeland = require('../models/Homeland')
@@ -36,35 +39,6 @@ router.post('/:id', (req, res, next) => {
 })
 
 
-router.delete('/:id', (req, res, next) => {
-	Post.remove({_id: req.params.id})
-		.exec((err, result) => {
-			if(err) return res.send(err)
-			res.send(200)
-		})
-})
-
-
-
-router.put('/',  (req, res, next) => {
-	Post.findById(req.body._id).exec((err, post) => {
-		if(err) {
-			res.status(500).send(err)
-		} else {
-			post.title = req.body.title
-			post.content = req.body.content
-			post.author = req.body.author
-			post.save((err, result) => {
-				if(err) {
-					res.status(500).send(err)
-				} else {
-					res.status(200).send(result)
-					console.log(post)
-				}
-			})
-		}
-	})
-})
 
 
 
@@ -75,14 +49,24 @@ router.get('/admin', (req, res, next) => {
 	})
 })
 
-// router.get('/:id', (req, res, next) => {
-// 	Post.findById(req.params.id).populate('models')
-// 		.exec((err, car) => {
-// 			if(err) return res.send(err)
-// 			res.send(car)
-// 		})
-// })
+router.get('/mileage', (req, res, next) => {
+	Brand.find().populate('models').exec((err, cars) => {
+		if(err) return res.send(err)
+		res.send(cars)
+	})
+})
 
+router.get('/search/:search_text', asyncMiddleware(async(req, res, next) => {
+	const myRegExp = new RegExp(`${req.params.search_text}`, 'i')
+
+	let result = await Brand.find({
+		$or: [
+			{title: myRegExp}
+		]
+	}).limit(5).exec()
+
+	res.send(result)
+}))
 
 
 

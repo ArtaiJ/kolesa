@@ -2,3 +2,58 @@
 	border: 1px solid rgb(0, 0, 0);
 	border-radius: 5px;
 }
+
+.input_search {
+	width: 100%;
+	padding: 10px 5px;
+	border-top: 1px solid rgb(169, 169, 169);
+	border-bottom: 1px solid rgb(169, 169, 169);
+}
+
+.input_price {
+	font-size: 1.356em;
+	line-height: 26px;
+	color: #000;
+	border: 1px solid #abadb3;
+	width: 5.9em;
+	height: 29px;
+	padding: .1em;
+	margin-right: 10px;
+}
+
+.input_vin {
+	font-size: 1.356em;
+	line-height: 26px;
+	color: #000;
+	border: 1px solid #abadb3;
+	width: 15em;
+	height: 29px;
+	padding: .1em;
+}
+
+.check {
+	display: inline-block;
+	margin: 10px 5px 10px 30px;
+}
+
+	.check_text {
+		padding: 8px 0;
+	}
+
+.input_text {
+	width: 90%;
+	height: 145px;
+	border: 1px solid #abadb3;
+	padding: 10px;
+}
+
+.input-price {
+	font-size: 14px;
+	line-height: 26px;
+	color: #000;
+	border: 1px solid #E8E7E8;
+	width: 100%;
+	height: 29px;
+	padding: 5px;
+}
+

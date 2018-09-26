@@ -1,0 +1,134 @@
+.car_select {
+	width: 250px;
+	height: 290px;
+	display: block;
+	border: 1px solid rgb(169, 169, 169);
+	margin-right: 10px;
+}
+
+	.cars_list {
+		background-color: #b9b5b4;
+	}
+
+
+		.list_item {
+			width: 200px;
+			padding: 5px 10px;
+			font-size: 16px;
+			cursor: default;
+			background-color: unset;
+		}
+	
+	.models_list {
+		background-color: #b9b5b4;
+	}
+
+	
+
+.types_block {
+	width: 70%;
+	display: flex;
+	flex-flow: row;
+	flex-wrap: wrap;
+}
+
+	.type_list {
+		background-color: #ffdd61;
+	}
+
+		.type_item {
+			padding: 10px;
+			word-wrap: nowrap;
+			font-size: 16px;
+			text-decoration: underline;
+			text-decoration-style: dotted;
+			color: #06c;
+			cursor: pointer;
+		}
+
+.year_block {
+	width: 70%;
+	display: flex;
+	flex-flow: column;
+}
+
+	.tip {
+		position: static;
+		font-size: 14px;
+		color: #666;
+		padding-top: 5px;
+	}
+
+.price_block {
+	width: 70%;
+	display: flex;
+	flex-flow: row;
+	flex-wrap: wrap;
+}
+
+	.price_tip {
+		position: static;
+		font-size: 16px;
+		padding: 10px 0 0 5px;
+	}
+
+.wheel {
+	width: 100px;
+	display: inline-block;
+	border: 1px solid #a2a2a2;
+	padding: 10px 0;
+	text-align: center;
+	cursor: pointer;
+	font-weight: 400;
+}
+
+.wheel_active {
+	background-color: #ffdd61;
+}
+
+.image_add_block {
+	width: 100%;
+	display: flex;
+	flex-flow: column;
+}
+
+	.image_add {
+		width: 90%;
+		height: 145px;
+		border: 1px dashed #b0bec5;
+		background-color: #E4FFE5;
+		padding: 10px;
+	}
+
+.contact_add {
+	display: block;
+	font-size: 40px;
+	color: #333;
+	margin: 70px 0 30px 0;
+	font-weight: 500;
+}
+
+.consent {
+	width: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	background-color: #E4FFE5;
+}
+
+.submit_block {
+	width: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	margin: 30px;
+	padding: 20px;
+}
+
+.confirm_block {
+	display: flex;
+	flex-flow: row;
+	margin-right: 30px;
+}

@@ -8,7 +8,7 @@ function SignupCtrl($http, $scope, $state, $rootScope) {
 	vm.signUp = function() {
 		var data = {
 			email: vm.email,
-			name: vm.name,
+			phone: vm.phone,
 			password: vm.password
 		}
 

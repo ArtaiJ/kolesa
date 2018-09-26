@@ -1,0 +1,50 @@
+.postadd {
+	width: 100%;
+	display: flex;
+	flex-flow: column;
+}
+
+	.postadd_head {
+		display: block;
+		font-size: 2em;
+		color: #333;
+		margin: .67em 0;
+		font-weight: bold;
+	}
+
+	.postadd_text {
+		display: flex;
+		flex-flow: column;
+		padding-bottom: 50px;
+	}
+
+		.text {
+			padding: 20px 0;
+			font-size: 18px;
+		}
+
+		.bold {
+			font-weight: bold;
+			color: #333;
+		}
+
+	.field_block {
+		display: flex;
+		flex-flow: row;
+		margin-bottom: 30px;
+	}
+
+		.field_title {
+			width: 230px;
+			font-size: 18px;
+			font-weight: bold;
+			color: #333;
+		}
+
+	.field_items {
+		display: flex;
+	}
+
+		.field_add {
+			display: flex;
+		}

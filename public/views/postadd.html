@@ -1,0 +1,41 @@
+<section class="postadd">
+	<div class="postadd_head">Подать объявление на Колёса</div>
+	<div class="postadd_text">
+		<span class="text">Срок жизни объявления на сайте — 7 дней. Продлить объявление можно в вашем личном кабинете.</span>
+		<div>
+			<span class="text">Поля, обязательные к заполнению, </span>
+			<span class="text bold">сразу видно *</span>
+		</div>
+	</div>
+
+	<div class="field_block">
+		<span class="field_title">Выберите категорию *</span>
+		<div class="field_items">
+			<div class="field_add">
+				<select class="select_menu" ng-model="vm.menu" ng-change="vm.selectMenu(vm.menu)" ng-options="menu for menu in vm.menus" size="10">
+					<option class="select_option" value="vm.menus[0]"></option>
+					<option class="select_option" value="vm.menus[1]"></option>
+					<option class="select_option" value="vm.menus[2]"></option>
+					<option class="select_option" value="vm.menus[3]"></option>
+					<option class="select_option" value="vm.menus[4]"></option>
+				</select>
+				<select class="select_submenu" size="10" ng-model="vm.submenu" ng-change="vm.selectSubmenu(vm.submenu)" ng-options="submenu for submenu in vm.submenu_items">
+					<option class="select_option" value="vm.submenu_items[0]"></option>
+					<option class="select_option" value="vm.submenu_items[1]"></option>
+					<option class="select_option" value="vm.submenu_items[2]"></option>
+					<option class="select_option" value="vm.submenu_items[3]"></option>
+					<option class="select_option" value="vm.submenu_items[4]"></option>
+					<option class="select_option" value="vm.submenu_items[5]"></option>
+					<option class="select_option" value="vm.submenu_items[6]"></option>
+					<option class="select_option" value="vm.submenu_items[7]"></option>
+					<option class="select_option" value="vm.submenu_items[8]"></option>
+					<option class="select_option" value="vm.submenu_items[9]"></option>
+				</select>
+			</div>
+		</div>
+	</div>
+</section>
+
+<ui-view>
+		
+</ui-view>

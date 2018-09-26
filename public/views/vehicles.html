@@ -1,11 +1,10 @@
 <section class="vehicles">
 	<div class="submenu">
-		<div class="menu-items">Легковые с пробегом</div>
-		<div class="menu-items">Легковые новые</div>
-		<div class="menu-items">Автосалоны</div>
-		<div class="menu-items">Мототехника</div>
+		<div ng-repeat="submenu in vm.submenus">
+			<div class="menu-items" ng-click="vm.selectSubmenu(submenu)">{{submenu}}</div>
+		</div>
 	</div>
-	<div class="mileage-car">
+	<div class="mileage-car" ng-show="vm.submenu == 'Легковые с пробегом'">
 		<div class="search-block">
 			<div class="search-block_left">
 				<div class="cliparts">
@@ -13,40 +12,152 @@
 					<img class="clipart_items" src="../images/suv.png" alt="" title="Внедорожники и пикапы">
 					<img class="clipart_items" src="../images/minivan.png" alt="" title="Минивены и микроавтобусы">
 				</div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
+
+				<!-- Поиск по региону -->
+
+				<div class="filter-region_block_active ng-class: {'filter-region_block_white': vm.regionBlock == true}">
+					<div class="filter-region_block">
+						<span class="region_title" ng-click="vm.changeCity()">Где искать</span>
+						<div data-ng-class="{'wheel_active': region == vm.activeRegion}" ng-repeat="region in vm.showRegions">
+							<div class="filter-region" ng-click="vm.selectRegion(region)">{{region.place}}</div>
+						</div>
+						<div class="filter-region" ng-click="vm.changeCity()">
+							<span class="filter-region">еще</span>
+							<img src="../images/chevron-arrow-down.svg" alt="">
+						</div>
+					</div>
+
+					<div class="region_select_block" ng-show="vm.regionBlock == true">
+						<div class="city_list">
+							<div data-ng-class="{'wheel_active': region == vm.activeRegion}" ng-repeat="region in vm.regions | orderBy: 'place'">
+								<div class="city_list_item" ng-click="vm.selectRegion(region)">{{region.place}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Поиск по марке -->
+
+				<div class="filter-region_block_active ng-class: {'filter-region_block_white': vm.brandBlock == true}">
+					<div class="filter-region_block">
+						<span class="region_title" ng-click="vm.changeBrand()">Марка</span>
+						<div data-ng-class="{'wheel_active': brand == vm.activeBrand}" ng-repeat="brand in vm.showBrands">
+							<div class="filter-region" ng-click="vm.selectBrand(brand)">{{brand.title}}</div>
+						</div>
+						<div class="filter-region" ng-click="vm.changeBrand()">
+							<span class="filter-region">еще</span>
+							<img src="../images/chevron-arrow-down.svg" alt="">
+						</div>
+					</div>
+
+					<div class="region_select_block" ng-show="vm.brandBlock == true">
+						<div class="city_list">
+							<div data-ng-class="{'wheel_active': brand == vm.activeBrand}" ng-repeat="brand in vm.brands | orderBy: 'title'">
+								<div class="city_list_item" ng-click="vm.selectBrand(brand)">{{brand.title}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Поиск по модели -->
+
+				<div class="filter-region_block_active ng-class: {'filter-region_block_white': vm.modelBlock == true}">
+					<div class="filter-region_block">
+						<span class="region_title" ng-click="vm.changeModel()">Модель</span>
+						<div data-ng-class="{'wheel_active': model == vm.activeModel}" ng-repeat="model in vm.showModels" ng-if="vm.brand != null">
+							<div class="filter-region" ng-click="vm.selectModel(model)">{{model.name}}</div>
+						</div>
+						<div class="filter-region" ng-click="vm.changeModel()" ng-if="vm.brand != null">
+							<span class="filter-region">еще</span>
+							<img src="../images/chevron-arrow-down.svg" alt="">
+						</div>
+					</div>
+
+					<div class="region_select_block" ng-show="vm.modelBlock == true && vm.brand != null">
+						<div class="city_list">
+							<div data-ng-class="{'wheel_active': model == vm.activeModel}" ng-repeat="model in vm.models | orderBy: 'title'">
+								<div class="city_list_item" ng-click="vm.selectModel(model)">{{model.name}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="additional_block">
+					<div class="additional">
+						<input class="additional_check" type="checkbox" name="">
+						<span>Растаможен</span>
+					</div>
+					<div class="additional">
+						<input class="additional_check" type="checkbox" name="">
+						<span>С фото</span>
+					</div>
+					<div class="additional">
+						<input class="additional_check" type="checkbox" name="">
+						<span>Срочно, торг</span>
+					</div>
+				</div>
+
+				<!-- Расширенный поиск -->
+
+				<div class="settings_block">
+					<div class="settings_head">
+						<img src="../images/settings.svg" alt="">
+						<span class="region_title">Расширенный поиск</span>
+						<img src="../images/chevron-arrow-down.svg" alt="">
+					</div>
+
+					<div class="settings_body">
+						<div class="settings_select_block">
+							
+						</div>
+						<div class="settings_select_block">
+							
+						</div>
+						<div class="settings_select_block">
+							
+						</div>
+						<div class="search_all">
+							
+						</div>
+						
+					</div>
+				</div>
+
+				
 			</div>
+
+			<!-- Правый блок поиска -->
+
 			<div class="search-block_right">
 				<div>
-					<span>Цена</span>
-					<div>
-						<input type="" name="" placeholder="от">
-						<input type="" name="" placeholder="до">
+					<span class="price-filter_title">Цена</span>
+					<div class="input-price_block">
+						<input class="input-price" type="" name="" placeholder="от">
+						<input class="input-price" type="" name="" placeholder="до">
 					</div>
-					<div>
-						<span>до 1 млн</span>
-						<span>1 - 2 млн</span>
-						<span>2 - 3 млн</span>
+					<div class="help_block">
+						<span class="price-filter_help">до 1 млн</span>
+						<span class="price-filter_help">1 - 2 млн</span>
+						<span class="price-filter_help">2 - 3 млн</span>
 					</div>
 				</div>
 				<div>
-					<span>Год выпуска</span>
-					<div>
-						<input type="" name="" placeholder="от">
-						<input type="" name="" placeholder="до">
+					<span class="price-filter_title">Год выпуска</span>
+					<div class="input-price_block">
+						<input class="input-price" type="" name="" placeholder="от">
+						<input class="input-price" type="" name="" placeholder="до">
 					</div>
-					<div>
-						<span>до 3 лет</span>
-						<span>до 7 лет</span>
-						<span>старше 7 лет</span>
+					<div class="help_block">
+						<span class="price-filter_help">до 3 лет</span>
+						<span class="price-filter_help">до 7 лет</span>
+						<span class="price-filter_help">старше 7 лет</span>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div>
-			<button>Показать объявления</button>
+		<div class="search_footer">
+			<button class="btn">Показать объявления</button>
 		</div>
 	</div>
 </section>
