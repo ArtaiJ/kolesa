@@ -48,7 +48,13 @@ function routeConfig($stateProvider, $urlRouterProvider, $locationProvider) {
 			controller: 'AdminCtrl',
 			controllerAs: 'vm'
 		})
-		.state('vehicles', {
+		.state('submenu', {
+			url: '/submenu',
+			templateUrl: '/views/submenu.html',
+			controller: 'SubmenuCtrl',
+			controllerAs: 'vm'
+		})
+		.state('submenu.vehicles', {
 			url: '/vehicles',
 			templateUrl: '/views/vehicles.html',
 			controller: 'VehiclesCtrl',

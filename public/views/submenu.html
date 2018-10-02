@@ -1,0 +1,11 @@
+<section class="vehicles">
+	<div class="submenu">
+		<div ng-repeat="submenu in vm.submenus">
+			<div class="menu-items" ng-click="vm.selectSubmenu(submenu)">{{submenu}}</div>
+		</div>
+	</div>
+</section>
+
+	<ui-view>
+		
+	</ui-view>

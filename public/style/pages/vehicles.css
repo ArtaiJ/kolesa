@@ -24,6 +24,7 @@
 				display: flex;
 				flex-flow: row;
 				flex-wrap: nowrap;
+				justify-content: space-between;
 				background-color: #fbf1d7;
 				padding: 10px;
 			}
@@ -34,14 +35,26 @@
 				}
 
 					.cliparts {
+						width: 630px;
 						padding: 15px 0 15px 50px;
+						display: flex;
+						flex-flow: row;
+						flex-wrap: nowrap;
 					}
 
-						.clipart_items {
+						.clipart_block {
+							padding: 5px 15px;
 							margin-right: 50px;
-							width: 10%;
-							cursor: pointer;
 						}
+
+						.clipart_block_active {
+							background-color: #ffdd61;
+						}
+
+							.clipart_items {								
+								width: 100px;
+								cursor: pointer;
+							}
 
 					.filter-region_block {
 						display: flex;
@@ -52,11 +65,13 @@
 					.filter-region_block_active {
 						display: flex;
 						flex-flow: column;
+						margin: 10px 0;
 					}
 
 					.filter-region_block_white {
 						display: flex;
 						flex-flow: column;
+						margin: 10px 0;
 						background-color: #fff;
 					}
 
@@ -97,12 +112,15 @@
 						}
 
 				.search-block_right {
+					width: 250px;
+					height: 210px;
 					padding: 10px;
 					display: flex;
 					flex-flow: column;
 				}
 
 					.price-filter_title {
+						width: 240px;
 						display: block;
 						margin-bottom: 5px;
 						font-size: 14px;
@@ -134,7 +152,8 @@
 	display: flex;
 	flex-flow: row;
 	flex-wrap: nowrap;
-	padding: 10px;
+	padding: 10px 10px 0 10px;
+	margin-bottom: 10px;
 }
 
 	.additional {
@@ -148,16 +167,133 @@
 
 .settings_block {
 	display: flex;
-	flex-flow: row;
-	flex-wrap: nowrap;
+	flex-flow: column;
 	padding: 10px 30px;
 }
 
+.settings_block_white {
+	display: flex;
+	flex-flow: column;
+	padding: 10px 30px;
+	background-color: #fff;
+}
+
+	.settings_head {
+		display: flex;
+		flex-flow: row;
+		flex-wrap: nowrap;
+		cursor: pointer;
+	}
+
 	.settings_body {
 		display: flex;
-		flex-flow: column;
-		padding: 20px;
+		flex-flow: row;
+		flex-wrap: wrap;
 	}
+
+		.settings_select_block {
+			width: 275px;
+			height: 36px;
+			display: flex;
+			flex-flow: row;
+			flex-wrap: wrap;
+			padding: 8px 5px 8px 10px;
+			margin: 10px 30px 10px 0;
+			border: 1px solid grey;
+			border-radius: 3px;
+		}
+
+			.in_select {
+				display: flex;
+				flex-flow: row;
+				flex-wrap: nowrap;
+				align-items: center;
+			}
+
+				.in_select_text {
+					width: 228px;
+					display: block;
+					font-size: 14px;
+					color: grey;
+				}
+
+		.additional_options_block {
+			display: flex;
+			flex-flow: column;
+			margin-top: 10px;
+		}
+
+			.additional_options {
+				display: flex;
+				flex-flow: row;
+				flex-wrap: wrap;
+			}
+
+				.additional_options_setting {
+					display: flex;
+					flex-flow: column;
+					margin: 10px 30px 10px 0;
+				}
+
+				.to_order_settings {
+					display: flex;
+					flex-flow: row;
+					flex-wrap: nowrap;
+				}
+
+					.to_order_options {
+						width: 137.5px;
+						height: 36px;
+						border: 1px solid grey;
+						border-bottom-left-radius: 3px;
+						border-top-left-radius: 3px;
+						font-size: 14px;
+						text-align: center;
+						padding: 10px 0;
+						cursor: pointer;
+					}
+
+					.to_order_options_right {
+						width: 137.5px;
+						height: 36px;
+						border: 1px solid grey;
+						border-left: none;
+						border-bottom-right-radius: 3px;
+						border-top-right-radius: 3px;
+						font-size: 14px;
+						text-align: center;
+						padding: 10px 0;
+						cursor: pointer;
+					}
+
+				.metallic_settings  {
+					display: flex;
+					flex-flow: row;
+					flex-wrap: nowrap;
+					align-items: center;
+					margin-top: 10px;
+				}	
+
+					.color_options {
+						width: 275px;
+						height: 36px;
+						display: flex;
+						flex-flow: row;
+						flex-wrap: wrap;
+						padding: 10px;
+						border: 1px solid grey;
+						border-radius: 3px;
+					}
+
+					.metallic_text {
+						font-size: 14px;
+					}
+
+				.search_all_text {
+					display: block;
+					font-size: 14px;
+					color: grey;
+				}
 
 
 .search_footer {
@@ -169,4 +305,6 @@
 	align-items: center;
 	justify-content: center;
 	background-color: #fae8bb;
+	position: sticky;
+	bottom: 0;
 }

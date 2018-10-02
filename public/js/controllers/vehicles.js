@@ -5,11 +5,13 @@ VehiclesCtrl.$inject = ['$http', '$scope', '$rootScope'];
 function VehiclesCtrl($http, $scope, $rootScope) {
 	var vm = this;
 	
-	vm.submenus = ['Легковые с пробегом', 'Легковые новые', 'Автосалоны', 'Мототехника'];
+	
 	vm.regionBlock = false;
 	vm.brandBlock = false;
 	vm.modelBlock = false;
+	vm.settingsBlock = false;
 	vm.showModels = [];
+	vm.check_body = false;
 
 	$http.get('/api/region')
 		.success(function(response) {
@@ -30,8 +32,36 @@ function VehiclesCtrl($http, $scope, $rootScope) {
 			console.log(err);
 		})
 
-	vm.selectSubmenu = function(submenu) {
-		vm.submenu = submenu;
+	vm.selectClipart = function(clipart) {
+		if (vm.check_body == false) {
+			vm.check_body = true;
+			if (clipart == 1) {
+				vm.body = 'light';
+				vm.activeClipart = 1;
+			} else if (clipart == 2) {
+				vm.body = 'suv';
+				vm.activeClipart = 2;
+			} else if (clipart == 3) {
+				vm.body = 'minivan';
+				vm.activeClipart = 3;
+			}
+		
+		} else if (vm.check_body == true) {			
+			if (clipart == 1 && (vm.activeClipart == 2 || vm.activeClipart == 3)) {
+				vm.body = 'light';
+				vm.activeClipart = 1;
+			} else if (clipart == 2 && (vm.activeClipart == 1 || vm.activeClipart == 3)) {
+				vm.body = 'suv';
+				vm.activeClipart = 2;
+			} else if (clipart == 3 && (vm.activeClipart == 1 || vm.activeClipart == 2)) {
+				vm.body = 'minivan';
+				vm.activeClipart = 3;
+			} else {
+				vm.check_body = false;
+				vm.body = '';
+				vm.activeClipart = 0;
+			}			
+		}		
 	}
 
 	vm.selectRegion = function(region) {
@@ -84,6 +114,14 @@ function VehiclesCtrl($http, $scope, $rootScope) {
 			vm.modelBlock = true;
 		} else if (vm.modelBlock == true) {
 			vm.modelBlock = false;
+		}
+	}
+
+	vm.changeSettings = function() {
+		if (vm.settingsBlock == false) {
+			vm.settingsBlock = true;
+		} else if (vm.settingsBlock == true) {
+			vm.settingsBlock = false;
 		}
 	}
 

@@ -1,16 +1,17 @@
-<section class="vehicles">
-	<div class="submenu">
-		<div ng-repeat="submenu in vm.submenus">
-			<div class="menu-items" ng-click="vm.selectSubmenu(submenu)">{{submenu}}</div>
-		</div>
-	</div>
-	<div class="mileage-car" ng-show="vm.submenu == 'Легковые с пробегом'">
+
+	<div class="mileage-car">
 		<div class="search-block">
 			<div class="search-block_left">
 				<div class="cliparts">
-					<img class="clipart_items" src="../images/light.png" alt="" title="Легковые">
-					<img class="clipart_items" src="../images/suv.png" alt="" title="Внедорожники и пикапы">
-					<img class="clipart_items" src="../images/minivan.png" alt="" title="Минивены и микроавтобусы">
+					<div class="clipart_block ng-class: {'clipart_block_active': vm.activeClipart == 1}" ng-click="vm.selectClipart(1)">
+						<img class="clipart_items" src="../images/light.png" alt="" title="Легковые">
+					</div>
+					<div class="clipart_block ng-class: {'clipart_block_active': vm.activeClipart == 2}" ng-click="vm.selectClipart(2)">
+						<img class="clipart_items" src="../images/suv.png" alt="" title="Внедорожники и пикапы">
+					</div>
+					<div class="clipart_block ng-class: {'clipart_block_active': vm.activeClipart == 3}" ng-click="vm.selectClipart(3)">
+						<img class="clipart_items" src="../images/minivan.png" alt="" title="Минивены и микроавтобусы">
+					</div>
 				</div>
 
 				<!-- Поиск по региону -->
@@ -100,27 +101,112 @@
 
 				<!-- Расширенный поиск -->
 
-				<div class="settings_block">
-					<div class="settings_head">
+				<div class="settings_block ng-class: {'settings_block_white': vm.settingsBlock == true}">
+					<div class="settings_head" ng-click="vm.changeSettings()">
 						<img src="../images/settings.svg" alt="">
 						<span class="region_title">Расширенный поиск</span>
 						<img src="../images/chevron-arrow-down.svg" alt="">
 					</div>
 
-					<div class="settings_body">
+					<div class="settings_body" ng-show="vm.settingsBlock == true">
 						<div class="settings_select_block">
-							
+							<div class="settings_select">
+								<div class="in_select">
+									<div class="in_select_text">Страна происхождения марки</div>
+									<img src="../images/arrow-down.svg" alt="">
+								</div>
+							</div>
 						</div>
 						<div class="settings_select_block">
-							
+							<div class="settings_select">
+								<div class="in_select">
+									<div class="in_select_text">Состояние машины</div>
+									<img src="../images/arrow-down.svg" alt="">
+								</div>
+							</div>
 						</div>
 						<div class="settings_select_block">
-							
+							<div class="settings_select">
+								<div class="in_select">
+									<div class="in_select_text">Кузов</div>
+									<img src="../images/arrow-down.svg" alt="">
+								</div>
+							</div>
 						</div>
-						<div class="search_all">
-							
+						<div class="settings_select_block">
+							<div class="settings_select">
+								<div class="in_select">
+									<div class="in_select_text">Тип двигателя</div>
+									<img src="../images/arrow-down.svg" alt="">
+								</div>
+							</div>
 						</div>
-						
+						<div class="settings_select_block">
+							<div class="settings_select">
+								<div class="in_select">
+									<div class="in_select_text">КПП</div>
+									<img src="../images/arrow-down.svg" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="settings_select_block">
+							<div class="settings_select">
+								<div class="in_select">
+									<div class="in_select_text">Расположение руля</div>
+									<img src="../images/arrow-down.svg" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="settings_select_block">
+							<div class="settings_select">
+								<div class="in_select">
+									<div class="in_select_text">Привод</div>
+									<img src="../images/arrow-down.svg" alt="">
+								</div>
+							</div>
+						</div>
+						<div></div>
+											
+					</div>
+					<div class="additional_options_block" ng-show="vm.settingsBlock == true">
+						<div class="additional_options">
+							<div class="additional_options_setting">
+								<div class="price-filter_title">Пробег не более, км</div>
+								<input class="options_input" type="number" name="">
+							</div>
+							<div class="additional_options_setting">
+								<div class="price-filter_title">Наличие</div>
+								<div class="to_order_settings">
+									<div class="to_order_options">В наличии</div>
+									<div class="to_order_options_right">На заказ</div>
+								</div>
+							</div>
+							<div class="additional_options_setting">
+								<div class="price-filter_title">Объем двигателя, л</div>
+								<div class="to_order_settings">
+									<input class="engine_volume_from" type="number" name="" step="0.1" placeholder="от">
+									<input class="engine_volume_to" type="number" name="" step="0.1" placeholder="до">						
+								</div>
+							</div>
+							<div class="additional_options_setting">
+								<div class="price-filter_title">Цвет</div>
+								<div class="color_options">
+									<div class="in_select">
+										<div class="in_select_text">Не важно</div>
+										<img src="../images/arrow-down.svg" alt="">
+									</div>
+								</div>
+								<div class="metallic_settings">
+									<input class="check_metallic" type="checkbox" id="col" ng-model="vm.checkboxModel"/>
+									<label class="metallic_text" for="col">металлик</label>
+								</div>
+							</div>
+							<div class="additional_options_setting">
+								<input class="search_all" type="" name="" placeholder="Что ищем?">
+								<span class="search_all_text">Здесь пишут, что хотят. Даже номер телефона, если ищут своё объявление.</span>
+							</div>
+						</div>
+									
 					</div>
 				</div>
 
@@ -160,7 +246,7 @@
 			<button class="btn">Показать объявления</button>
 		</div>
 	</div>
-</section>
+
 <ui-view>
 		
 </ui-view>
