@@ -4,14 +4,16 @@ VehiclesCtrl.$inject = ['$http', '$scope', '$rootScope'];
 
 function VehiclesCtrl($http, $scope, $rootScope) {
 	var vm = this;
-	
-	
+		
 	vm.regionBlock = false;
 	vm.brandBlock = false;
 	vm.modelBlock = false;
 	vm.settingsBlock = false;
 	vm.showModels = [];
-	vm.check_body = false;
+
+	vm.cleared = false;
+	vm.photo = false;
+	vm.urgently = false;
 
 	$http.get('/api/region')
 		.success(function(response) {
@@ -33,8 +35,11 @@ function VehiclesCtrl($http, $scope, $rootScope) {
 		})
 
 	vm.selectClipart = function(clipart) {
-		if (vm.check_body == false) {
-			vm.check_body = true;
+
+		if (vm.activeClipart == clipart) {
+			vm.body = '';
+			vm.activeClipart = 0;
+		} else {
 			if (clipart == 1) {
 				vm.body = 'light';
 				vm.activeClipart = 1;
@@ -45,23 +50,7 @@ function VehiclesCtrl($http, $scope, $rootScope) {
 				vm.body = 'minivan';
 				vm.activeClipart = 3;
 			}
-		
-		} else if (vm.check_body == true) {			
-			if (clipart == 1 && (vm.activeClipart == 2 || vm.activeClipart == 3)) {
-				vm.body = 'light';
-				vm.activeClipart = 1;
-			} else if (clipart == 2 && (vm.activeClipart == 1 || vm.activeClipart == 3)) {
-				vm.body = 'suv';
-				vm.activeClipart = 2;
-			} else if (clipart == 3 && (vm.activeClipart == 1 || vm.activeClipart == 2)) {
-				vm.body = 'minivan';
-				vm.activeClipart = 3;
-			} else {
-				vm.check_body = false;
-				vm.body = '';
-				vm.activeClipart = 0;
-			}			
-		}		
+		}
 	}
 
 	vm.selectRegion = function(region) {
@@ -69,8 +58,14 @@ function VehiclesCtrl($http, $scope, $rootScope) {
 		if (index == -1) {
 			vm.showRegions[4] = region;
 		}
-		vm.region = region;
-		vm.activeRegion = region;
+		if (vm.activeRegion == region) {
+			vm.region = '';
+			vm.activeRegion = '';
+		} else {
+			vm.region = region;
+			vm.activeRegion = region;
+		}
+
 	}
 
 	vm.changeCity = function() {
@@ -86,10 +81,18 @@ function VehiclesCtrl($http, $scope, $rootScope) {
 		if (mark == -1) {
 			vm.showBrands[4] = brand;
 		}
-		vm.brand = brand;
-		vm.activeBrand = brand;
-		vm.models = brand.models;
-		vm.showModels = brand.models.slice(0, 5);
+		if (vm.activeBrand == brand) {
+			vm.brand = '';
+			vm.model = '';
+			vm.activeBrand = '';
+			vm.models = [];
+			vm.showModels = [];
+		} else {
+			vm.brand = brand;
+			vm.activeBrand = brand;
+			vm.models = brand.models;
+			vm.showModels = brand.models.slice(0, 5);
+		}
 	}
 
 	vm.changeBrand = function() {
@@ -105,8 +108,13 @@ function VehiclesCtrl($http, $scope, $rootScope) {
 		if (mod == -1) {
 			vm.showModels[4] = model;
 		}
-		vm.model = model;
-		vm.activeModel = model;
+		if (vm.activeModel == model) {
+			vm.model = '';
+			vm.activeModel = '';
+		} else {
+			vm.model = model;
+			vm.activeModel = model;
+		}
 	}
 
 	vm.changeModel = function() {
@@ -116,6 +124,10 @@ function VehiclesCtrl($http, $scope, $rootScope) {
 			vm.modelBlock = false;
 		}
 	}
+
+	
+
+
 
 	vm.changeSettings = function() {
 		if (vm.settingsBlock == false) {

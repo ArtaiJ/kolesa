@@ -84,6 +84,11 @@
 			cursor: pointer;
 		}
 
+		.menu-items:active {
+			color: #000;
+			text-decoration: none;
+		}
+
 	.post-ads {
 		display: flex;
 		top: 0;
